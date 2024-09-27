@@ -15,7 +15,7 @@ pre-commit:
       run: npm run lint {staged_files} && git add {staged_files}
     vitest:
       glob: "*.{js,ts,jsx,tsx}"
-      run: npm ci:test {staged_files} && git add {staged_files}
+      run: npm run ci:test {staged_files} && git add {staged_files}
     # rubocop:
     #   tags: backend style
     #   glob: "*.rb"
