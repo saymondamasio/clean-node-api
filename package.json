@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "vitest run",
-    "test:watch": "vitest --watch",
+    "test": "vitest ",
+    "ci:test": "vitest run",
     "coverage": "vitest run --coverage",
     "lint": "eslint --fix"
   },
