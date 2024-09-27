@@ -12,10 +12,10 @@ pre-commit:
   commands:
     eslint:
       glob: "*.{js,ts,jsx,tsx}"
-      run: npm run lint {staged_files} && git add .
+      run: npm run lint {staged_files} && git add {staged_files}
     vitest:
       glob: "*.{js,ts,jsx,tsx}"
-      run: npm test {staged_files} && git add .
+      run: npm test {staged_files} && git add {staged_files}
     # rubocop:
     #   tags: backend style
     #   glob: "*.rb"
