@@ -1,11 +1,7 @@
-# pre-push:
-#   commands:
-#     packages-audit:
-#       tags: frontend security
-#       run: yarn audit
-#     gems-audit:
-#       tags: backend security
-#       run: bundle audit
+pre-push:
+  commands:
+    vitest:
+      run: npm run ci:test
 
 pre-commit:
   parallel: true
@@ -15,7 +11,7 @@ pre-commit:
       run: npm run lint {staged_files} && git add {staged_files}
     vitest:
       glob: "*.{js,ts,jsx,tsx}"
-      run: npm run ci:test {staged_files} && git add {staged_files}
+      run: npm run test {staged_files} && git add {staged_files}
     # rubocop:
     #   tags: backend style
     #   glob: "*.rb"
