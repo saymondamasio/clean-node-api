@@ -1,4 +1,4 @@
-import { EmailValidatorAdapter } from './email-validator'
+import { EmailValidatorAdapter } from './email-validator-adapter'
 import validator from 'validator'
 
 vi.mock(import('validator'), async (importOriginal) => {
@@ -11,9 +11,13 @@ vi.mock(import('validator'), async (importOriginal) => {
   }
 })
 
+const makeSut = (): EmailValidatorAdapter => {
+  return new EmailValidatorAdapter()
+}
+
 describe('EmailValidator Adapter', () => {
   test('Should return false if validator return false', () => {
-    const sut = new EmailValidatorAdapter()
+    const sut = makeSut()
 
     vi.spyOn(validator, 'isEmail').mockReturnValueOnce(false)
 
